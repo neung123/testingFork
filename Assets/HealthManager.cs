@@ -1,21 +1,13 @@
-public class HealthManager
+using UnityEngine;
+
+namespace Project.GameManager
 {
-    public int IncreaseHealth(int currentHealth, int increaseAmount, int maxHealth)
+    public class HealthManager
     {
-        int newHealth = currentHealth + increaseAmount;
-        return ClampHealth(currentHealth, newHealth);
-    }
-
-    public int ClampHealth(int currentHealth, int maxHealth)
-    {
-        if (currentHealth > maxHealth)
+        public int IncreaseHealth(int currentHealth, int increaseAmount, int maxHealth)
         {
-            return maxHealth;
-        }
-        else
-        {
-            return currentHealth;
+            int newHealth = currentHealth + increaseAmount;
+            return Mathf.Clamp(newHealth, 0, maxHealth);
         }
     }
-
 }
